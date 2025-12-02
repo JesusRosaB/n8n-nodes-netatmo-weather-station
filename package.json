@@ -1,0 +1,50 @@
+{
+  "name": "n8n-nodes-netatmo-weather-station",
+  "version": "1.0.0",
+  "description": "n8n node to get data from Netatmo Weather Station",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "netatmo",
+    "weather"
+  ],
+  "license": "ISC",
+  "author": {
+    "name": "Jesus Rosa Bilbao"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes --write",
+    "lint": "eslint nodes package.json",
+    "lintfix": "eslint nodes package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/NetatmoApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Netatmo/Netatmo.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-n8n-nodes-base": "^1.11.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^3.1.0",
+    "n8n-workflow": "^1.0.0",
+    "prettier": "^2.7.1",
+    "typescript": "^5.6.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
